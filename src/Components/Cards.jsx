@@ -4,7 +4,7 @@ function Cards({ex}) {
 <div key={ex} className="rounded overflow-hidden shadow-lg flex flex-col">
                 <a href="#"></a>
                 <div className="relative"><a href="#">
-                        <img className="w-full"
+                        <img className="w-full h-64 object-cover"
                             src={ex.images[0]}
                             alt={ex.name}/> 
                         <div
@@ -22,8 +22,11 @@ function Cards({ex}) {
                     <a href="#"
                         className="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">
                         {ex.name}</a>
-                    <p className="text-gray-500 text-sm">
+                    {/* <p className="text-gray-500 text-sm">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p> */}
+                    <p className="text-gray-500 text-sm line-clamp-2">
+                        {ex.instructions[0]}
                     </p>
                 </div>
                 <div className="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
@@ -40,7 +43,16 @@ function Cards({ex}) {
                                 </g>
                             </g>
                         </svg>
-                        <span className="ml-1">6 mins ago</span>
+                        {(()=>{
+                            switch(ex.level){
+                                case 'beginner':
+                                    return <span className="ml-1 p-1 rounded-md px-2 bg-green-400">{ex.level}</span>
+                                case 'intermediate':
+                                    return <span className="ml-1 p-1 rounded-md px-2 bg-orange-400">{ex.level}</span>
+                                default:
+                                    return <span className="ml-1 p-1 rounded-md px-2 bg-red-500">{ex.level}</span>
+                            }
+                        })()}
                     </span>
 
                     <span href="#" className="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
@@ -49,7 +61,15 @@ function Cards({ex}) {
                                 d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
                             </path>
                         </svg>
-                        <span className="ml-1">{ex.primaryMuscles.map((p=>p+' - '))}</span>
+                        <span className="ml-1">
+                            <span>{ex.primaryMuscles.join(' ')}</span>
+                            {ex.secondaryMuscles.length > 0 && (
+                                <span className="ml-1">
+                                - {ex.secondaryMuscles.slice(0, 1).join(' - ')}
+                                {ex.secondaryMuscles.length > 1 && '...'}
+                                </span>
+                            )}
+                        </span>
                     </span>
                 </div>
             </div>  )

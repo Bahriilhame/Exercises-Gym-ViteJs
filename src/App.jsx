@@ -20,7 +20,6 @@ function App() {
     const input = event.target.value.toLowerCase();
     setSearchInput(input);
 
-    // Filter exercises based on the search input
     const filteredExercises = allExercises.filter(
       (ex) => ex.name.toLowerCase().includes(input)
     );
@@ -60,7 +59,7 @@ function App() {
                 </div>
                 <div className="flex w-11/12 md:w-8/12 xl:w-6/12">
                     <div className="flex rounded-md w-full">
-                        <input onChange={handleSearchChange} type="text" name="q"
+                        <input onChange={handleSearchChange} value={searchInput} type="text" name="q"
                             className="w-full p-3 rounded-md rounded-r-none border border-2 border-gray-300 placeholder-current text-gray-900 dark:bg-gray-100  dark:text-gray-300 dark:border-none "
                             placeholder="Search by name of the exercise..." />
                         <button
