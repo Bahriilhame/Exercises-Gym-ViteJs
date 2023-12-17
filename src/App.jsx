@@ -16,7 +16,6 @@ function App() {
     setExercises(exercise);
   }, []);
 
-
   const handleSearchChange = (event) => {
     const input = event.target.value.toLowerCase();
     setSearchInput(input);
@@ -44,7 +43,7 @@ function App() {
     <>
     <Navbar />
     
-    <div className="dark:bg-orange-300">
+    <div className="bg-[url('./assets/photos/background.jpg')] bg-cover dark:bg-orange-200">
         <div className="dark:bg-transparent">
             <div className="mx-auto flex flex-col items-center py-12 sm:py-24">
                 <div className="w-11/12 sm:w-2/3 lg:flex justify-center items-center flex-col mb-1 sm:mb-9">
@@ -54,8 +53,8 @@ function App() {
                         <span className="text-blue-800 dark:text-blue-500"> No Execuses</span>
                         .
                     </h1>
-                    <p className="mt-5 sm:mt-10 lg:w-10/12 text-gray-600 dark:text-gray-300 font-normal text-center text-xl">
-                        A Community build tailwind component library.
+                    <p className="mt-4 sm:mt-10 lg:w-10/12 text-white dark:text-white font-normal text-center text-xl">
+                    The largest and most comprehensive database of exercise guides! Learn how to perform exercises using correct technique.
                     </p>
                 </div>
                 <div className="flex w-11/12 md:w-8/12 xl:w-6/12">
@@ -99,7 +98,7 @@ function App() {
                         <path d="M53.527,192.864c-2.187,3.518-1.109,8.142,2.409,10.329l183.478,114.081c1.232,0.767,2.601,1.132,3.953,1.132 c2.506,0,4.956-1.256,6.376-3.541c2.187-3.518,1.109-8.142-2.409-10.329L63.856,190.455 C60.338,188.266,55.714,189.346,53.527,192.864z"> </path>
                     </g>
                 </svg>
-                <a href="#" className="font-semibold inline-block">Cooking BLog</a>
+                <a href="#" className="font-semibold inline-block">Exercises</a>
             </div>
             <select
                 onChange={handleCategoryChange}
