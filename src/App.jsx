@@ -4,6 +4,7 @@ import Cards from './Components/Cards'
 // import CardsNav from './Components/CardsNav'
 import filtrage from './Filtrage.json'
 import Navbar from './Components/Navbar'
+import ExcercisePage from './Components/ExcercisePage'
 
 function App() {
   const [allExercises, setAllExercises] = useState(exercise);
@@ -46,7 +47,7 @@ function App() {
     <div className="dark:bg-orange-300">
         <div className="dark:bg-transparent">
             <div className="mx-auto flex flex-col items-center py-12 sm:py-24">
-                <div className="w-11/12 sm:w-2/3 lg:flex justify-center items-center flex-col mb-4 sm:mb-10">
+                <div className="w-11/12 sm:w-2/3 lg:flex justify-center items-center flex-col mb-1 sm:mb-9">
                     <h1
                         className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl text-center text-gray-800 dark:text-white font-black leading-10">
                         Let&apos;s go 
@@ -119,6 +120,7 @@ function App() {
             )
         })}
         </div>
+        {/* <ExcercisePage/> */}
     </div>
     </>
   )
