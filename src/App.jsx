@@ -40,9 +40,7 @@ function App() {
   };
 
   return (
-    <>
-    <Navbar />
-    
+    <>    
     <div className="bg-[url('./assets/photos/background.jpg')] bg-cover dark:bg-orange-200">
         <div className="dark:bg-transparent">
             <div className="mx-auto flex flex-col items-center py-12 sm:py-24">

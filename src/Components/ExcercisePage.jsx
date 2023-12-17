@@ -1,5 +1,9 @@
 import exercises from '../exercise.json'
+import { useParams } from 'react-router-dom'
+
 function ExcercisePage() {
+  const {id}=useParams()
+  const exercise=exercises.find(e=>e.id==id)
   return (
 <section className="text-gray-700 body-font overflow-hidden bg-white">
   <div className="container px-9 py-24 mx-auto">
@@ -12,11 +16,13 @@ function ExcercisePage() {
                 <span
                     className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First
                     Slide</span>
-                <img src={exercises[1].images[0]}
+                    {console.log(`.${exercise.images[0]}`)}
+                    <img src='../assets/exercises/3_4_Sit-Up/0.jpg' width={'60%'} alt="..." />
+                <img src={`.${exercise.images[0]}`}
                     className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="..."/>
             </div>
             <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src={exercises[1].images[1]}
+                <img src={`.${exercise.images[1]}`}
                     className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="..."/>
             </div>
         </div>
@@ -59,8 +65,8 @@ function ExcercisePage() {
 
       {/*  */}
       <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-        <h2 className="text-sm title-font text-gray-500 tracking-widest">{exercises[1].category}</h2>
-        <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{exercises[1].name}</h1>
+        <h2 className="text-sm title-font text-gray-500 tracking-widest">{exercise.category}</h2>
+        <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{exercise.name}</h1>
         <div className="flex mb-4">
           <span className="flex items-center">
             <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-yellow-400" viewBox="0 0 24 24">
@@ -83,12 +89,12 @@ function ExcercisePage() {
 
         </div>
         <h4 className='text-blue-700'>Instructions :</h4>
-        <p className="leading-relaxed">{exercises[1].instructions}</p>
+        <p className="leading-relaxed">{exercise.instructions}</p>
           <div className="mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
             <h1 className="mr-3">Primary Muscles</h1>
-            <h3>{exercises[1].primaryMuscles.map(p=>p)}</h3>
+            <h3>{exercise.primaryMuscles.map(p=>p)}</h3>
 
-            <h1 className="mr-3">Secondary Muscles <h3>{exercises[1].secondaryMuscles.map(p=>p)}</h3></h1>
+            <h1 className="mr-3">Secondary Muscles <h3>{exercise.secondaryMuscles.map(p=>p)}</h3></h1>
             
           </div>
         <div className="flex">

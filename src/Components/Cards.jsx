@@ -1,27 +1,28 @@
+import { Link } from "react-router-dom"
 
 function Cards({ex}) {
   return (
 <div key={ex} className="rounded overflow-hidden shadow-lg flex flex-col">
-                <a href="#"></a>
-                <div className="relative"><a href="#">
+                <Link to={`/exercises/${ex.id}`}></Link>
+                <div className="relative"><Link to={`/exercises/${ex.id}`}>
                         <img className="w-full h-64 object-cover"
                             src={ex.images[0]}
                             alt={ex.name}/> 
                         <div
                             className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
                         </div>
-                    </a>
-                    <a href="#!">
+                    </Link>
+                    <Link to={`/exercises/${ex.id}`}>
                         <div
                             className="text-xs absolute top-0 right-0 bg-indigo-600 px-4 py-2 text-white mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
                             {ex.category}
                         </div>
-                    </a>
+                    </Link>
                 </div>
                 <div className="px-6 py-4 mb-auto">
-                    <a href="#"
+                    <Link to={`/exercises/${ex.id}`}
                         className="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">
-                        {ex.name}</a>
+                        {ex.name}</Link>
                     {/* <p className="text-gray-500 text-sm">
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     </p> */}
