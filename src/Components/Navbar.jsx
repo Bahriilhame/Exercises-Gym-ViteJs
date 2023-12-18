@@ -1,14 +1,41 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link ,useLocation} from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function Navbar() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [pageTitle, setPageTitle] = useState('BAHRI');
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const location = useLocation();
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/':
+        setPageTitle('Home');
+        break;
+      case '/exercises':
+        setPageTitle('Exercises Gym');
+        break;
+      case '/about':
+        setPageTitle('About Us');
+        break;
+      case '/contact':
+        setPageTitle('Contact Us');
+        break;
+      default:
+        setPageTitle('BAHRI');
+    }
+  }, [location.pathname]);
+
   return (
+    <>
+    <Helmet>
+        <title>{pageTitle}</title>
+      </Helmet>
     <nav className="bg-white border-gray-200 dark:bg-gray-900 relative z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         {/* Desktop Nav */}
@@ -117,6 +144,7 @@ function Navbar() {
         </div>
       </div>
     </nav>
+    </>
   );
 }
 
