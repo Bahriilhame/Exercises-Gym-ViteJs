@@ -52,7 +52,7 @@ function App() {
                         .
                     </h1>
                     <p className="mt-4 sm:mt-10 lg:w-10/12 text-white dark:text-white font-normal text-center text-xl">
-                    The largest and most comprehensive database of exercise guides! Learn how to perform exercises using correct technique.
+                    The largest and most comprehensive database of exercises guides! <br /> Learn how to perform exercises using the correct techniques.
                     </p>
                 </div>
                 <div className="flex w-11/12 md:w-8/12 xl:w-6/12">

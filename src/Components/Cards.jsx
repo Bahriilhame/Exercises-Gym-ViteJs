@@ -23,9 +23,6 @@ function Cards({ex}) {
                     <Link to={`/exercises/${ex.id}`}
                         className="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">
                         {ex.name}</Link>
-                    {/* <p className="text-gray-500 text-sm">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p> */}
                     <p className="text-gray-500 text-sm line-clamp-2">
                         {ex.instructions[0]}
                     </p>

@@ -17,7 +17,6 @@ function CardsNav() {
                 </svg>
                 <a href="#" className="font-semibold inline-block">Cooking BLog</a>
             </div>
-            {/* <a href="#">See All</a> */}
         </div>
   )
 }

@@ -10,29 +10,28 @@ function ExcercisePage() {
     <div className="lg:w-5/5 mx-auto flex-wrap">
 <div className="max-w-2xl mx-auto">
 
-    <div id="default-carousel" className="relative" data-carousel="static">
-        <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
-            <div className="hidden duration-700 ease-in-out" data-carousel-item>
+    <div id="default-carousel" className="relative" data-carousel="dynamic">
+        <div className="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96 ">
+            <div className="duration-700 ease-in-out" data-carousel-item>
                 <span
                     className="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800">First
                     Slide</span>
                     {console.log(`.${exercise.images[0]}`)}
-                    <img src='../assets/exercises/3_4_Sit-Up/0.jpg' width={'60%'} alt="..." />
                 <img src={`.${exercise.images[0]}`}
-                    className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="..."/>
+                    className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt={exercise.name}/>
             </div>
             <div className="hidden duration-700 ease-in-out" data-carousel-item>
                 <img src={`.${exercise.images[1]}`}
-                    className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="..."/>
+                    className="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt={exercise.name}/>
             </div>
         </div>
         <div className="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
             <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1"
-                data-carousel-slide-to="0"></button>
+                data-carousel-slide-to="0">1</button>
             <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
-                data-carousel-slide-to="1"></button>
+                data-carousel-slide-to="1">2</button>
             <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
-                data-carousel-slide-to="2"></button>
+                data-carousel-slide-to="2">3</button>
         </div>
         <button type="button"
             className="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
@@ -108,6 +107,7 @@ function ExcercisePage() {
       </div>
     </div>
   </div>
+
 </section>
   )
 }
