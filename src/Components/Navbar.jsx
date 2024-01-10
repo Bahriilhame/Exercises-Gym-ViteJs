@@ -41,7 +41,7 @@ function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex md:items-center md:space-x-4">
           <Link to="/" className="flex items-center pl-4">
-            <img src="../../public/Favicon.png" className="h-8 mr-3" alt="Flowbite Logo" />
+            <img src="../Favicon.png" className="h-8 mr-3" alt="Flowbite Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">BAHRI</span>
           </Link>
           <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
@@ -72,7 +72,7 @@ function Navbar() {
         {/* Mobile Nav */}
         <div className="md:hidden flex items-center w-full">
           <Link to="/" className="flex items-center pl-4">
-            <img src="../../public/Favicon.png" className="h-8 mr-3" alt="Flowbite Logo" />
+            <img src="../Favicon.png" className="h-8 mr-3" alt="Flowbite Logo" />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">BAHRI</span>
           </Link>
           <div className="ml-auto">
