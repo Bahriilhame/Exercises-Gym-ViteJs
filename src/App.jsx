@@ -1,12 +1,13 @@
-import { useState ,useEffect} from 'react'
-import exercise from './exercise.json'
-import Cards from './Components/Cards'
-// import CardsNav from './Components/CardsNav'
-import filtrage from './Filtrage.json'
-import Navbar from './Components/Navbar'
-import ExcercisePage from './Components/ExcercisePage'
+import { useState, useEffect } from 'react';
+import Cards from './Components/Cards';
+import Pagination from './Components/Pagination';  // Import the Pagination component
+import exercise from './exercise.json';
+import filtrage from './Filtrage.json';
+import { Link } from 'react-router-dom';
 
 function App() {
+  const exercisesPerPage = 18;
+  const [currentPage, setCurrentPage] = useState(1);
   const [allExercises, setAllExercises] = useState(exercise);
   const [exercises, setExercises] = useState(exercise);
   const [searchInput, setSearchInput] = useState('');
@@ -39,6 +40,17 @@ function App() {
     }
   };
 
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const indexOfLastExercise = currentPage * exercisesPerPage;
+  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
+  const currentExercises = exercises.slice(
+    indexOfFirstExercise,
+    indexOfLastExercise
+  );
+
   return (
     <>    
     <div className="bg-[url('./assets/photos/background.jpg')] bg-cover dark:bg-orange-200">
@@ -48,7 +60,7 @@ function App() {
                     <h1
                         className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl text-center text-gray-800 dark:text-white font-black leading-10">
                         Let&apos;s go 
-                        <span className="text-blue-800 dark:text-blue-500"> No Execuses</span>
+                        <span className="text-blue-800 dark:text-blue-500"> No Excuses</span>
                         .
                     </h1>
                     <p className="mt-4 sm:mt-10 lg:w-10/12 text-white dark:text-white font-normal text-center text-xl">
@@ -58,19 +70,8 @@ function App() {
                 <div className="flex w-11/12 md:w-8/12 xl:w-6/12">
                     <div className="flex rounded-md w-full">
                         <input onChange={handleSearchChange} value={searchInput} type="text" name="q"
-                            className="w-full p-3 rounded-md rounded-r-none border border-2 border-gray-300 placeholder-current text-gray-900 dark:bg-gray-100  dark:text-gray-300 dark:border-none "
+                            className="w-full p-3 rounded-md border-2 border-gray-300 placeholder-current text-gray-900 dark:bg-gray-100  dark:text-gray-500 dark:border-none "
                             placeholder="Search by name of the exercise..." />
-                        <button
-                            className="inline-flex items-center gap-2 bg-blue-700 text-white text-lg font-semibold py-3 px-5 rounded-r-md">
-                            <span>Find</span>
-                            <svg className="text-gray-200 h-5 w-5 p-0 fill-current" xmlns="http://www.w3.org/2000/svg"
-                                xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px"
-                                viewBox="0 0 56.966 56.966" style={{ enableBackground:"new 0 0 56.966 56.966;" }}
-                                xmlSpace="preserve">
-                                <path
-                                    d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
-                            </svg>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -78,12 +79,12 @@ function App() {
     </div>
 
     {/*  */}
-    <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+         <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
 
-        {/* <CardsNav/> */}
-        <div className="border-b mb-5 flex justify-between text-sm">
-            <div className="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
-                <svg className="h-6 mr-3" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+         {/* <CardsNav/> */}
+         <div className="border-b mb-5 flex justify-between text-sm">
+             <div className="text-indigo-600 flex items-center pb-2 pr-2 border-b-2 border-indigo-600 uppercase">
+                 <svg className="h-6 mr-3" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                     xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 455.005 455.005"
                     style={{ enableBackground:"new 0 0 455.005 455.005;" }} xmlSpace="preserve">
                     <g>
@@ -96,7 +97,7 @@ function App() {
                         <path d="M53.527,192.864c-2.187,3.518-1.109,8.142,2.409,10.329l183.478,114.081c1.232,0.767,2.601,1.132,3.953,1.132 c2.506,0,4.956-1.256,6.376-3.541c2.187-3.518,1.109-8.142-2.409-10.329L63.856,190.455 C60.338,188.266,55.714,189.346,53.527,192.864z"> </path>
                     </g>
                 </svg>
-                <a href="#" className="font-semibold inline-block">Exercises</a>
+                <Link to='/exercises' className="font-semibold inline-block">Exercises</Link>
             </div>
             <select
                 onChange={handleCategoryChange}
@@ -109,18 +110,24 @@ function App() {
                 })}
             </select>
         </div>
-        {/*  */}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-        {exercises.map(e=>{
-            return ( <div key={e.id}><Cards ex={e}/></div>
-            )
-        })}
+          {currentExercises.map((e) => (
+            <div key={e.id}>
+              <Cards ex={e} />
+            </div>
+          ))}
         </div>
-        {/* <ExcercisePage/> */}
-    </div>
+
+        <Pagination
+          itemsPerPage={exercisesPerPage}
+          totalItems={exercises.length}
+          currentPage={currentPage}
+          paginate={paginate}
+        />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

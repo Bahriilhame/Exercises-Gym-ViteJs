@@ -21,7 +21,7 @@ function Cards({ex}) {
                 </div>
                 <div className="px-6 py-4 mb-auto">
                     <Link to={`/exercises/${ex.id}`}
-                        className="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">
+                        className="font-medium text-lg hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2">
                         {ex.name}</Link>
                     <p className="text-gray-500 text-sm line-clamp-2">
                         {ex.instructions[0]}
